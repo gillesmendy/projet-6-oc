@@ -1,40 +1,38 @@
+
 // Récupération des projets avec fetch
 
-fetch('http://localhost:5678/api/projects')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erreur réseau : ' + response.status);
-    }
-    return response.json(); 
-  })
-  .then(projects => {
-    console.log('Projets récupérés:', projects);
- 
-    displayProjects(projects);
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des projets:', error);
-  });
-
+async function getWorks() {
+    const response = await fetch('http://localhost:5678/api/works');
+    return await response.json();
+    
+}
 
   // Ajouter les projets à la gallerie 
 
-  function displayProjects(projects) {
+  function addWorks(work) {
     const gallery = document.querySelector('.gallery'); 
   
-    projects.forEach(project => {
-      const projectElement = document.createElement('div');
-      projectElement.classList.add('project'); 
+    const workElement = document.createElement('div');
+    workElement.classList.add('work'); 
   
-      const image = document.createElement('img');
-      image.src = project.imageUrl; 
-      image.alt = project.title;  
+    const image = document.createElement('img');
+    image.src = work.imageUrl; 
+    image.alt = work.title;  
   
-      const title = document.createElement('h3');
-      title.textContent = project.title;
+    const title = document.createElement('h3');
+    title.textContent = work.title;
   
-      projectElement.appendChild(image);
-      projectElement.appendChild(title);
-      gallery.appendChild(projectElement);
+    workElement.appendChild(image);
+    workElement.appendChild(title);
+    gallery.appendChild(workElement);
+};
+
+
+async function showWorks() {
+    const allWorks = await getWorks();
+    allWorks.forEach((work) => {
+        addWorks(work)
     });
-  }
+}
+
+showWorks();
