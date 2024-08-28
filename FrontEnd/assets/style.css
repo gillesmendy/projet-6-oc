@@ -186,4 +186,31 @@ footer nav ul {
 	margin: 2em
 }
 
+.filters {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3em;
+	gap: 2em;
 
+}
+
+.filter {
+	width: 585px;
+	height: 38px;
+	border-radius: 60px;
+	border: solid 3px;
+	border-color: #1D6154;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: large;
+	color: #1D6154;
+	cursor: pointer;
+}
+
+.filter:hover {
+	background-color: #1D6154;
+	color: white;
+}

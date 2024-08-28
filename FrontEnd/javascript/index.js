@@ -46,22 +46,22 @@ async function getCategories() {
 
 // Ajouter les categories à la div filters
 function addCategories(filter) {
-    const filters = document.querySelector('.filters'); // Sélectionne l'élément avec la classe 'filters'
+    const filters = document.querySelector('.filters'); 
   
-    const filterElement = document.createElement('div'); // Crée un nouvel élément 'div' pour chaque catégorie
-    filterElement.classList.add('filter'); // Ajoute la classe 'filter' pour le style
+    const filterElement = document.createElement('div'); 
+    filterElement.classList.add('filter'); 
   
-    filterElement.textContent = filter.name; // Ajoute le nom de la catégorie comme contenu textuel
+    filterElement.textContent = filter.name; 
   
-    filters.appendChild(filterElement); // Ajoute cet élément à l'élément '.filters'
+    filters.appendChild(filterElement); 
 }
 
 //Combiner les deux fonctions
 async function showCategories() {
-    const categories = await getCategories(); // Récupère les catégories depuis l'API
-    categories.forEach((category) => { // Parcourt chaque catégorie
-        addCategories(category); // Ajoute chaque catégorie à la page
+    const categories = await getCategories(); 
+    categories.forEach((category) => { 
+        addCategories(category); 
     });
 }
 
-showCategories(); // Appelle la fonction pour afficher les catégories
+showCategories(); 
