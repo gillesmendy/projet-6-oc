@@ -16,7 +16,7 @@ async function getWorks() {
     workElement.classList.add('work'); 
   
     const image = document.createElement('img');
-    image.src = work.imageUrl; 
+    image.src = work.imageUrl;  
     image.alt = work.title;  
   
     const title = document.createElement('h3');
