@@ -36,3 +36,10 @@ async function showWorks() {
 }
 
 showWorks();
+
+
+// Récupération des catégories pour les filtres 
+async function getCategories() {
+    const response = await fetch('http://localhost:5678/api/categories');
+    return await response.json();
+}
