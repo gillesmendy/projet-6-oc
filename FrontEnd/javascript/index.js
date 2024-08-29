@@ -32,7 +32,8 @@ async function showWorks() {
     const allWorks = await getWorks();
     allWorks.forEach((work) => {
         addWorks(work)
-    });
+    })
+    console.log(allWorks);
 }
 
 showWorks();
@@ -45,23 +46,26 @@ async function getCategories() {
 }
 
 // Ajouter les categories à la div filters
-function addCategories(filter) {
-    const filters = document.querySelector('.filters'); 
+async function showCategories() {
+    const allCategories = await getCategories();
+    console.log(allCategories);
+    const categories = document.querySelector('.filters'); 
+
+    const buttonAll = document.createElement('button');
+    buttonAll.textContent = 'Tous';
+    buttonAll.setAttribute = ('id', '0');
+    buttonAll.classList.add('filter');
+    categories.appendChild(buttonAll);
   
-    const filterElement = document.createElement('div'); 
-    filterElement.classList.add('filter'); 
-  
-    filterElement.textContent = filter.name; 
-  
-    filters.appendChild(filterElement); 
+    allCategories.forEach(category => {
+        const button = document.createElement('button');
+        button.textContent = category.name;
+        button.id = category.id;
+        button.classList.add('filter');
+        categories.appendChild(button);
+    });
+
 }
 
-//Combiner les deux fonctions
-async function showCategories() {
-    const categories = await getCategories(); 
-    categories.forEach((category) => { 
-        addCategories(category); 
-    });
-}
 
 showCategories(); 
