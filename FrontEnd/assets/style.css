@@ -196,8 +196,7 @@ footer nav ul {
 }
 
 .filter {
-	padding-inline: 20px;
-	height: 38px;
+	padding: 10px 20px;
 	border-radius: 60px;
 	border: solid 1px;
 	border-color: #1D6154;
