@@ -13,7 +13,8 @@ async function getWorks() {
     const gallery = document.querySelector('.gallery'); 
   
     const workElement = document.createElement('div');
-    workElement.classList.add('work'); 
+    workElement.classList.add('work');
+    workElement.dataset.categoryId = work.categoryId; // Correction apportée
   
     const image = document.createElement('img');
     image.src = work.imageUrl;  
@@ -53,7 +54,7 @@ async function showCategories() {
 
     const buttonAll = document.createElement('button');
     buttonAll.textContent = 'Tous';
-    buttonAll.setAttribute = ('id', '0');
+    buttonAll.id = '0'; // Correction apportée
     buttonAll.classList.add('filter');
     categories.appendChild(buttonAll);
   
@@ -65,7 +66,33 @@ async function showCategories() {
         categories.appendChild(button);
     });
 
+sortCategories();
 }
 
-
 showCategories(); 
+
+// Filtrer le contenu 
+
+function sortCategories() { 
+    const allFiltersButton = document.querySelector('.filters'); 
+
+    // Ajouter l'écouteur d'événements pour le filtrage
+    allFiltersButton.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON') {
+            const filterId = event.target.id;
+
+            // Masquer tous les éléments
+            const allWorks = document.querySelectorAll('.work');
+            allWorks.forEach(work => {
+                work.classList.add("hidden");
+            });
+
+            // Afficher les éléments correspondant au filtre
+            allWorks.forEach(work => {
+                if (filterId === '0' || work.dataset.categoryId === filterId) {
+                    work.classList.remove("hidden");
+                }
+            });
+        }
+    });
+}
