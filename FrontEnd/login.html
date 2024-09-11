@@ -9,16 +9,16 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="./javascript/index.js" defer></script>
+	<script src="./javascript/login.js" defer></script>
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li><a href="index.html">projets</a></li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href="#portfolio">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li><a href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -26,12 +26,12 @@
 <main>
 	<section id="contact">
 		<h2>Log in</h2>
-		<form action="#" method="post">
-			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
+		<form action="./index.html" method="post" id="loginForm">
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<input type="submit" value="Envoyer">
+			<input type="email" name="email" id="email" required>
+			<label for="password">Mot de passe</label>
+			<input type="password" name="password" id="password" required>
+			<button type="submit">Envoyer</button>
 		</form>
 		<a href="#">Mot de passe oublié</a>
 	</section>
