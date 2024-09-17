@@ -1,6 +1,4 @@
 // Envoi des données du formulaire vers le backend
-
-
 async function login() {
     const form = document.getElementById("loginForm");
     form.addEventListener("submit", async (event) => {
@@ -9,11 +7,15 @@ async function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
+        function errorMessage(message) {
+            document.getElementById("errorMessage").textContent = message;
+        }
+
         try {
-            const response = await fetch("http://localhost:5678/api/users/login", { // Mettez ici le bon endpoint API
+            const response = await fetch("http://localhost:5678/api/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ // Utiliser JSON.stringify pour convertir l'objet en chaîne JSON
+                body: JSON.stringify({ 
                     email: email,
                     password: password
                 })
@@ -21,17 +23,17 @@ async function login() {
 
             const data = await response.json();
             if (response.ok) {
-                console.log("Connexion réussie", data);
-                alert("Connexion réussie !");
+                window.localStorage.setItem("token", data.token);
+                window.location.href = "index.html";
             } else {
-                console.error("Erreur de connexion", data);
-                alert("Échec de la connexion : Vérifiez vos identifiants");
+                errorMessage("Échec de la connexion : Vérifiez vos identifiants")
             }
         } catch (error) {
-            console.error("Erreur lors de la requête", error);
-            alert("Une erreur s'est produite. Veuillez réessayer.");
+            errorMessage("Une erreur s'est produite lors de la connexion")
         }
     });
 };
 
 login();
+
+
