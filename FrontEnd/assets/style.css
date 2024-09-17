@@ -301,4 +301,20 @@ footer {
 	padding: 10px 0;
 }
 
+/*** MODIFY BUTTON ***/
+#projectTitle {
+    display: flex;
+    align-items: baseline; 
+    justify-content:center; 
+	gap: 40px;
+}
+
+.modify-button {
+	background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+	font-weight: 400;
+}
 

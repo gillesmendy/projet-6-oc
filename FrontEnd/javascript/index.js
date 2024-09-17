@@ -96,3 +96,26 @@ function sortCategories() {
         }
     });
 }
+
+// Création du bouton modifier
+
+function loginCheck() {
+    const token = window.localStorage.getItem("token");
+    const filtersSection = document.querySelector('.filters');
+    const projectTitleDiv = document.getElementById('projectTitle');
+    
+    if (token) {
+        const modifyButton = document.createElement('button');
+        modifyButton.textContent = 'Modifier';
+        modifyButton.classList.add('modify-button');
+        
+        projectTitleDiv.appendChild(modifyButton);
+        
+        if (filtersSection) {
+            filtersSection.remove();
+        }
+    }
+}
+
+loginCheck(); 
+
