@@ -11,6 +11,7 @@ async function getWorks() {
 
   function addWorks(work) {
     const gallery = document.querySelector('.gallery'); 
+    const modalGallery = document.querySelector('.modal-gallery');
   
     const workElement = document.createElement('div');
     workElement.classList.add('work');
@@ -26,6 +27,9 @@ async function getWorks() {
     workElement.appendChild(image);
     workElement.appendChild(title);
     gallery.appendChild(workElement);
+
+    const modalWorkElement = workElement.cloneNode(true); 
+    modalGallery.appendChild(modalWorkElement); 
 };
 
 
@@ -119,3 +123,54 @@ function loginCheck() {
 
 loginCheck(); 
 
+// Création de la modale 
+
+// Ouvrir modale
+const modalGallery = document.getElementById('modalGallery');
+const openModalGalleryButton = document.querySelector('.modify-button');
+const closeModalButtons = document.querySelectorAll('.close');
+
+openModalGalleryButton.addEventListener('click', function() {
+    modalGallery.style.display = 'block';
+});
+
+// Ouvrir modale ajout de photo
+const modalAddPhoto = document.getElementById('modalAddPhoto');
+const openAddPhotoButton = document.getElementById('openAddPhoto');
+
+openAddPhotoButton.addEventListener('click', function() {
+    modalGallery.style.display = 'none';
+    modalAddPhoto.style.display = 'block';
+});
+
+// Fermer modale
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        modalGallery.style.display = 'none';
+        modalAddPhoto.style.display = 'none';
+    });
+});
+
+// Fermer les modales si l'utilisateur clique en dehors du contenu
+window.addEventListener('click', function(event) {
+    if (event.target == modalGallery) {
+        modalGallery.style.display = 'none';
+    } else if (event.target == modalAddPhoto) {
+        modalAddPhoto.style.display = 'none';
+    }
+});
+
+// Remplir catégories dans formulaire d'ajout 
+async function showCategoriesInForm() {
+    const categories = await getCategories();
+    const categorySelect = document.querySelector('select[name="category"]');
+
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category.id;
+        option.textContent = category.name;
+        categorySelect.appendChild(option);
+    });
+}
+
+showCategoriesInForm();
