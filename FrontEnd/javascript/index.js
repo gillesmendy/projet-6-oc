@@ -11,12 +11,10 @@ async function getWorks() {
 
   function addWorks(work) {
     const gallery = document.querySelector('.gallery'); 
-    const modalGallery = document.querySelector('.modal-gallery');
   
     const workElement = document.createElement('div');
     workElement.classList.add('work');
-    workElement.dataset.categoryId = work.categoryId; // Correction apportée
-  
+
     const image = document.createElement('img');
     image.src = work.imageUrl;  
     image.alt = work.title;  
@@ -28,8 +26,6 @@ async function getWorks() {
     workElement.appendChild(title);
     gallery.appendChild(workElement);
 
-    const modalWorkElement = workElement.cloneNode(true); 
-    modalGallery.appendChild(modalWorkElement); 
 };
 
 
@@ -160,6 +156,45 @@ window.addEventListener('click', function(event) {
     }
 });
 
+// Afficher les projets dans la modale
+const galleryModale = document.getElementsByClassName("modal-gallery")[0];
+
+async function addProjectsModale() {
+    galleryModale.innerHTML = "";
+    const projects = await getWorks();
+
+    projects.forEach(project => {
+        const workElement = document.createElement('div');
+        workElement.classList.add('work');
+
+        const trash = document.createElement("button");
+        const trashIcon = document.createElement("i");
+        trash.id = project.id;
+        trashIcon.classList.add("fa-solid", "fa-trash");
+
+        const image = document.createElement('img');
+        image.src = project.imageUrl;  
+        image.alt = project.title;  
+    
+        const title = document.createElement('h3');
+        title.textContent = project.title;
+        
+        galleryModale.appendChild(workElement);
+        workElement.appendChild(image);
+        workElement.appendChild(title);
+        workElement.appendChild(trash);
+        trash.appendChild(trashIcon);
+    })
+
+    deleteProjects();
+};
+
+addProjectsModale();
+
+function deleteProjects() {
+    
+}
+
 // Remplir catégories dans formulaire d'ajout 
 async function showCategoriesInForm() {
     const categories = await getCategories();
@@ -174,3 +209,5 @@ async function showCategoriesInForm() {
 }
 
 showCategoriesInForm();
+
+
