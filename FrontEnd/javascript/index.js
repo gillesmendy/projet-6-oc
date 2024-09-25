@@ -103,6 +103,7 @@ function loginCheck() {
     const token = window.localStorage.getItem("token");
     const filtersSection = document.querySelector('.filters');
     const projectTitleDiv = document.getElementById('projectTitle');
+    const logoutButton = document.getElementById('logoutButton')
     
     if (token) {
         const modifyButton = document.createElement('button');
@@ -110,6 +111,8 @@ function loginCheck() {
         modifyButton.classList.add('modify-button');
         
         projectTitleDiv.appendChild(modifyButton);
+
+        logoutButton.textContent = 'logout'
         
         if (filtersSection) {
             filtersSection.remove();
