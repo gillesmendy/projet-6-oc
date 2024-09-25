@@ -231,6 +231,10 @@ nav a {
 	color: black;
 }
 
+nav img {
+	width: 50%;
+}
+
 /* LOGIN */
 #login {
 	width: 50%;
