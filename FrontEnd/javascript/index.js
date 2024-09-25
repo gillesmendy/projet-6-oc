@@ -103,17 +103,20 @@ function loginCheck() {
     const token = window.localStorage.getItem("token");
     const filtersSection = document.querySelector('.filters');
     const projectTitleDiv = document.getElementById('projectTitle');
-    const logoutButton = document.getElementById('logoutButton')
+    const logoutButton = document.getElementById('logoutButton');
     
     if (token) {
+        const modifyIcon = document.createElement('img');
+        modifyIcon.src = "./assets/icons/vector.png";
+        projectTitleDiv.appendChild(modifyIcon); 
+
         const modifyButton = document.createElement('button');
         modifyButton.textContent = 'Modifier';
         modifyButton.classList.add('modify-button');
-        
         projectTitleDiv.appendChild(modifyButton);
 
-        logoutButton.textContent = 'logout'
-        
+        logoutButton.textContent = 'logout';
+
         if (filtersSection) {
             filtersSection.remove();
         }
