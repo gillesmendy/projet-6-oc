@@ -103,7 +103,7 @@ function loginCheck() {
     const token = window.localStorage.getItem("token");
     const filtersSection = document.querySelector('.filters');
     const projectTitleDiv = document.getElementById('projectTitle');
-    const logoutButton = document.getElementById('logoutButton');
+    const logoutButton = document.getElementById('loginButton');
     
     if (token) {
         const modifyIcon = document.createElement('img');
@@ -116,6 +116,23 @@ function loginCheck() {
         projectTitleDiv.appendChild(modifyButton);
 
         logoutButton.textContent = 'logout';
+        logoutButton.addEventListener('click', () => 
+            localStorage.removeItem('token')
+        );
+
+        const header = document.querySelector('header');
+        const topBar = document.createElement('div');
+        topBar.id = 'topBar';
+        header.appendChild(topBar)
+        const barIcon = document.createElement('i');
+        barIcon.classList.add('fa-regular', 'fa-pen-to-square');
+        const barText = document.createElement('span');
+        barText.textContent = 'Mode édition';
+        topBar.appendChild(barIcon);
+        topBar.appendChild(barText);
+
+
+
 
         if (filtersSection) {
             filtersSection.remove();
@@ -178,6 +195,7 @@ async function addProjectsModale() {
         trash.id = project.id;
         trashIcon.classList.add("fa-solid", "fa-trash");
 
+
         const image = document.createElement('img');
         image.src = project.imageUrl;  
         image.alt = project.title;  
@@ -190,6 +208,7 @@ async function addProjectsModale() {
         workElement.appendChild(title);
         workElement.appendChild(trash);
         trash.appendChild(trashIcon);
+
     })
 
     deleteProjects();
@@ -198,7 +217,14 @@ async function addProjectsModale() {
 addProjectsModale();
 
 function deleteProjects() {
-    
+    const allTrash = document.querySelectorAll('fa-trash');
+
+    allTrash.forEach(trash => {
+        trash.addEventListener('click', (e) => {
+            const trashId = trash.id;
+            // fetch type delete (voir delete dans swagger), voir post login pour reference, promesse a faire, passer trash.id pour reconnaitre projet supprime
+        })
+    });
 }
 
 // Remplir catégories dans formulaire d'ajout 
