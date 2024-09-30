@@ -14,6 +14,7 @@ async function getWorks() {
   
     const workElement = document.createElement('div');
     workElement.classList.add('work');
+    workElement.dataset.categoryId = work.categoryId;
 
     const image = document.createElement('img');
     image.src = work.imageUrl;  
