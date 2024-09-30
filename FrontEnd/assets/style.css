@@ -50,7 +50,7 @@ table {
 body {
 	max-width: 1140px;
 	margin:auto;
-	font-family: 'Work Sans' ;
+	font-family: 'Work Sans';
 	font-size: 14px;
 	background-color:rgba(255, 254, 248, 1);
 }
@@ -365,10 +365,16 @@ footer {
 .modal-content {
     background-color: white;
     margin: 15% auto;
-    padding: 20px;
+    padding: 150px 60px;
     border-radius: 8px;
-    width: 80%;
+    width: 600px;
     text-align: center;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0 0 45px 0;
 }
 
 .close {
@@ -387,8 +393,9 @@ footer {
 
 .modal-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 10px; 
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, auto); 
+    grid-gap: 15px; 
     padding: 20px;
 }
 
@@ -402,4 +409,16 @@ footer {
 
 .modal-gallery h3 {
     display: none; 
+}
+
+.trash {
+    color: white;
+    background-color: black;
+    border-radius: 3px;
+    font-size: 7px;
+    padding: 3px;
+    position: relative;
+    bottom: 130px;
+    left: 37px;
+	cursor: pointer;
 }

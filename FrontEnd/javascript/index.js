@@ -197,7 +197,7 @@ async function addProjectsModale() {
         const trashIcon = document.createElement("i");
         trash.id = project.id;
         trashIcon.classList.add("fa-solid", "fa-trash");
-
+        trash.classList.add('trash');
 
         const image = document.createElement('img');
         image.src = project.imageUrl;  
