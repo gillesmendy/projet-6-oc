@@ -107,8 +107,8 @@ function loginCheck() {
     const logoutButton = document.getElementById('loginButton');
     
     if (token) {
-        const modifyIcon = document.createElement('img');
-        modifyIcon.src = "./assets/icons/vector.png";
+        const modifyIcon = document.createElement('i');
+        modifyIcon.classList.add('fa-regular', 'fa-pen-to-square');
         projectTitleDiv.appendChild(modifyIcon); 
 
         const modifyButton = document.createElement('button');
