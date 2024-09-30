@@ -107,14 +107,18 @@ function loginCheck() {
     const logoutButton = document.getElementById('loginButton');
     
     if (token) {
+        const modifySection = document.createElement('div');
+        modifySection.classList.add('modifySection');
+        projectTitleDiv.appendChild(modifySection);
+
         const modifyIcon = document.createElement('i');
         modifyIcon.classList.add('fa-regular', 'fa-pen-to-square');
-        projectTitleDiv.appendChild(modifyIcon); 
+        modifySection.appendChild(modifyIcon); 
 
         const modifyButton = document.createElement('button');
-        modifyButton.textContent = 'Modifier';
+        modifyButton.textContent = 'modifier';
         modifyButton.classList.add('modify-button');
-        projectTitleDiv.appendChild(modifyButton);
+        modifySection.appendChild(modifyButton);
 
         logoutButton.textContent = 'logout';
         logoutButton.addEventListener('click', () => 
@@ -133,8 +137,6 @@ function loginCheck() {
         topBar.appendChild(barText);
 
 
-
-
         if (filtersSection) {
             filtersSection.remove();
         }
@@ -147,7 +149,7 @@ loginCheck();
 
 // Ouvrir modale
 const modalGallery = document.getElementById('modalGallery');
-const openModalGalleryButton = document.querySelector('.modify-button');
+const openModalGalleryButton = document.querySelector('.modifySection');
 const closeModalButtons = document.querySelectorAll('.close');
 
 openModalGalleryButton.addEventListener('click', function() {
