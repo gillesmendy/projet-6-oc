@@ -365,7 +365,7 @@ footer {
 .modal-content {
     background-color: white;
     margin: 15% auto;
-    padding: 150px 60px;
+    padding: 140px 40px;
     border-radius: 8px;
     width: 600px;
     text-align: center;
@@ -383,8 +383,8 @@ footer {
     font-size: 28px;
     font-weight: bold;
 	position: relative;
-    bottom: 130px;
-    left: 30px;
+    bottom: 120px;
+    left: 10px;
 }
 
 .close:hover,
@@ -425,4 +425,15 @@ footer {
     bottom: 130px;
     left: 37px;
 	cursor: pointer;
+}
+
+#openAddPhoto {
+	margin: 80px 0 -90px 0;
+    cursor: pointer;
+    border: transparent;
+    padding: 13px 60px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    background-color: rgba(29, 97, 84, 1);
+    color: white;
 }
