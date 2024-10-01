@@ -4,8 +4,7 @@
 async function getWorks() {
     const response = await fetch('http://localhost:5678/api/works');
     return await response.json();
-    
-}
+};
 
   // Ajouter les projets à la gallerie 
 
@@ -26,7 +25,6 @@ async function getWorks() {
     workElement.appendChild(image);
     workElement.appendChild(title);
     gallery.appendChild(workElement);
-
 };
 
 
@@ -55,7 +53,7 @@ async function showCategories() {
 
     const buttonAll = document.createElement('button');
     buttonAll.textContent = 'Tous';
-    buttonAll.id = '0'; // Correction apportée
+    buttonAll.id = '0'; 
     buttonAll.classList.add('filter');
     categories.appendChild(buttonAll);
   
@@ -214,21 +212,21 @@ async function addProjectsModale() {
 
     })
 
-    deleteProjects();
+    // deleteProjects();
 };
 
 addProjectsModale();
 
-function deleteProjects() {
-    const allTrash = document.querySelectorAll('fa-trash');
+// function deleteProjects() {
+//     const allTrash = document.querySelectorAll('fa-trash');
 
-    allTrash.forEach(trash => {
-        trash.addEventListener('click', (e) => {
-            const trashId = trash.id;
-            // fetch type delete (voir delete dans swagger), voir post login pour reference, promesse a faire, passer trash.id pour reconnaitre projet supprime
-        })
-    });
-}
+//     allTrash.forEach(trash => {
+//         trash.addEventListener('click', (e) => {
+//             const trashId = trash.id;
+//             // fetch type delete (voir delete dans swagger), voir post login pour reference, promesse a faire, passer trash.id pour reconnaitre projet supprime
+//         })
+//     });
+// }
 
 // Remplir catégories dans formulaire d'ajout 
 async function showCategoriesInForm() {

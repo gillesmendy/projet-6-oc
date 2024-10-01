@@ -378,10 +378,13 @@ footer {
 }
 
 .close {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
+	position: relative;
+    bottom: 130px;
+    left: 30px;
 }
 
 .close:hover,
