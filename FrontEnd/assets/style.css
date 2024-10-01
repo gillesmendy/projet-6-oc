@@ -400,6 +400,7 @@ footer {
     grid-template-rows: repeat(3, auto); 
     grid-gap: 15px; 
     padding: 20px;
+	border-bottom: solid black 0.1rem;
 }
 
 .modal-gallery img {
