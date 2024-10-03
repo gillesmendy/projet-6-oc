@@ -437,3 +437,8 @@ footer {
     background-color: rgba(29, 97, 84, 1);
     color: white;
 }
+
+#addPhotoForm {
+	display: flex;
+	flex-direction: column;
+}

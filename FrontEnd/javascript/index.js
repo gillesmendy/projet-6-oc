@@ -212,21 +212,41 @@ async function addProjectsModale() {
 
     })
 
-    // deleteProjects();
+    deleteProjects();
 };
 
 addProjectsModale();
 
-// function deleteProjects() {
-//     const allTrash = document.querySelectorAll('fa-trash');
+function deleteProjects() {
+    const allTrash = document.querySelectorAll('.trash'); 
 
-//     allTrash.forEach(trash => {
-//         trash.addEventListener('click', (e) => {
-//             const trashId = trash.id;
-//             // fetch type delete (voir delete dans swagger), voir post login pour reference, promesse a faire, passer trash.id pour reconnaitre projet supprime
-//         })
-//     });
-// }
+    allTrash.forEach(trash => {
+        trash.addEventListener('click', async (e) => {
+            const trashId = trash.id;
+
+            try {
+                const response = await fetch(`http://localhost:5678/api/works/${trashId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const workElement = trash.closest('.work');
+                    if (workElement) {
+                        workElement.remove();
+                    }
+                } else {
+                    console.error('Erreur lors de la suppression du projet');
+                }
+            } catch (error) {
+                console.error('Erreur réseau lors de la suppression du projet', error);
+            }
+        });
+    });
+}
 
 // Remplir catégories dans formulaire d'ajout 
 async function showCategoriesInForm() {
@@ -243,4 +263,39 @@ async function showCategoriesInForm() {
 
 showCategoriesInForm();
 
+
+
+// bouton envoyer uniquement si tous les champs remplis 
+
+const addProjects = document.getElementById('addPhotoForm');
+addProjects.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const image = document.getElementById("imageProject").value;
+    const title = document.getElementById("titleProject").value;
+    const category = document.getElementById("categoryProject").value;
+    const formData = new FormData(addProjects);
+
+    try {
+        const response = await fetch("http://localhost:5678/api/works", {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + localStorage.token
+            },
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error ("Erreur lors de l'envoi des données : ", response.status);
+        };
+
+        const data = await response.json();
+
+        addWorks()
+
+    } catch (error) {
+        console.error("Une erreur s'est produite : ", error);
+    };
+    
+})
 
