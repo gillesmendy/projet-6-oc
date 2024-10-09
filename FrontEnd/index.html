@@ -40,7 +40,7 @@
 	</section>
 	<section id="portfolio">
 		<div id="projectTitle">
-			<h2>Mes Projets</h2>
+			<h2>Mes projets</h2>
 		</div>
 		<div class="filters"></div>
 		<div class="gallery"></div>
@@ -80,11 +80,13 @@
 <div id="modalAddPhoto" class="modal hidden">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Ajout photo</h2>
+        <h3>Ajout photo</h3>
         <form id="addPhotoForm">
             <input id="imageProject" type="file" name="photo" accept="image/jpeg, image/png">
-            <input id="titleProject"  type="text" name="title" placeholder="Titre">
-            <select id="categoryProject" name="category"></select>
+			<label for="titleProject">Titre</label>
+            <input id="titleProject"  type="text" name="title" placeholder="">
+			<label for="categoryProject">Catégorie</label>
+            <select id="categoryProject" name="category" placeholder="none"></select>
             <button type="submit">Valider</button>
         </form>
     </div>

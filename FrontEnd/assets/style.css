@@ -211,6 +211,7 @@ footer nav ul {
 	color: #1D6154;
 	background-color: transparent;
 	cursor: pointer;
+	font-family: 'Syne';
 }
 
 .filter:hover {
@@ -323,7 +324,15 @@ nav img {
 footer {
 	background-color: white;
 	padding: 10px 0;
+	width: 100%;
 }
+
+.footerLogin {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 200px;
+}
+
 
 /*** MODIFY BUTTON ***/
 #projectTitle {
@@ -436,9 +445,39 @@ footer {
     font-size: 1.1rem;
     background-color: rgba(29, 97, 84, 1);
     color: white;
+	font-family: 'Syne';
 }
 
 #addPhotoForm {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+#addPhotoForm label {
+	width: 80%;
+	display: flex;
+	padding: 15px 0;
+}
+
+#titleProject {
+	width: 80%;
+	background-color: #B1663C;
+}
+
+#categoryProject {
+	width: 80%;
+	background-color: #B1663C;
+}
+
+#addPhotoForm button {
+    cursor: pointer;
+    border: transparent;
+    padding: 10px 110px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    background-color: grey;
+    color: white;
+    font-family: 'Syne';
+	margin: 70px 0 -70px 0;
 }
