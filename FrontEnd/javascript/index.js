@@ -264,38 +264,49 @@ async function showCategoriesInForm() {
 showCategoriesInForm();
 
 
-
-// bouton envoyer uniquement si tous les champs remplis 
-
+// Envoi des projets au backend
 const addProjects = document.getElementById('addPhotoForm');
+
 addProjects.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const image = document.getElementById("imageProject").value;
-    const title = document.getElementById("titleProject").value;
-    const category = document.getElementById("categoryProject").value;
-    const formData = new FormData(addProjects);
+    const image = document.getElementById("imageProject").files[0];  
+    const title = document.getElementById("titleProject").value.trim();  
+    const category = document.getElementById("categoryProject").value; 
+
+    if (!image || !title || !category) {  
+        alert("Tous les champs doivent être remplis !"); 
+        return;
+    }
+
+    const formData = new FormData();  
+    formData.append("image", image); 
+    formData.append("title", title);  
+    formData.append("category", category); 
 
     try {
-        const response = await fetch("http://localhost:5678/api/works", {
-            method: "POST",
+        const response = await fetch("http://localhost:5678/api/works", { 
+            method: "POST", 
             headers: {
-                "Authorization": "Bearer " + localStorage.token
-            },
-            body: formData
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+              },              
+            body: formData 
         });
 
-        if (!response.ok) {
-            throw new Error ("Erreur lors de l'envoi des données : ", response.status);
-        };
+        if (!response.ok) { 
+            throw new Error("Erreur lors de l'envoi des données : " + response.status); 
+        }
 
-        const data = await response.json();
+        const data = await response.json();  
 
-        addWorks()
+        addWorks(data); 
+
+        addProjects.reset(); 
+        document.getElementById('modalAddPhoto').style.display = 'none';
 
     } catch (error) {
-        console.error("Une erreur s'est produite : ", error);
-    };
-    
-})
+        console.error("Une erreur s'est produite :", error);  
+        alert("Une erreur s'est produite lors de l'ajout du projet.");
+    }
+});
 
