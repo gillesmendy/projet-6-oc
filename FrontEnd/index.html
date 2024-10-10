@@ -83,10 +83,18 @@
         <h3>Ajout photo</h3>
         <form id="addPhotoForm">
             <input id="imageProject" type="file" name="photo" accept="image/jpeg, image/png">
+
+			<div id="imagePreviewContainer">
+				<img id="imagePreview" src="" alt="Aperçu de l'image" class="hidden">
+				<p id="placeholderText">Choisissez une image</p>
+			</div>
+
 			<label for="titleProject">Titre</label>
             <input id="titleProject"  type="text" name="title" placeholder="">
+
 			<label for="categoryProject">Catégorie</label>
             <select id="categoryProject" name="category" placeholder="none"></select>
+
             <button type="submit">Valider</button>
         </form>
     </div>

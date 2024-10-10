@@ -310,3 +310,23 @@ addProjects.addEventListener('submit', async (e) => {
     }
 });
 
+
+// Prévisualisation de l'image dans la modale
+const imageInput = document.getElementById('imageProject');
+const imagePreview = document.getElementById('imagePreview');
+const placeholderText = document.getElementById('placeholderText');
+const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+
+imageInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.src = e.target.result;
+            imagePreview.classList.remove('hidden');
+            placeholderText.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
