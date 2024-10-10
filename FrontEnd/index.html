@@ -82,11 +82,15 @@
         <span class="close">&times;</span>
         <h3>Ajout photo</h3>
         <form id="addPhotoForm">
+			<img id="iconProject" src="/FrontEnd/assets/icons/image-icon.png" alt="icône image">
+
             <input id="imageProject" type="file" name="photo" accept="image/jpeg, image/png">
+
+			<button id="customFileButton" type="button">Choisir une image</button>
 
 			<div id="imagePreviewContainer">
 				<img id="imagePreview" src="" alt="Aperçu de l'image" class="hidden">
-				<p id="placeholderText">Choisissez une image</p>
+				<p id="placeholderText">jpg, png : 4mo max</p>
 			</div>
 
 			<label for="titleProject">Titre</label>

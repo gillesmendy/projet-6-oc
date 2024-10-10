@@ -330,3 +330,8 @@ imageInput.addEventListener('change', function(event) {
     }
 });
 
+
+// Personnalisation bouton fichier modale
+document.getElementById('customFileButton').addEventListener('click', function() {
+    document.getElementById('imageProject').click();
+});
