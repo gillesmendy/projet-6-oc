@@ -450,6 +450,7 @@ footer {
     justify-content: space-between;
     position: relative;
     bottom: 10px;
+	cursor: pointer;
 }
 
 #addPhotoForm {
