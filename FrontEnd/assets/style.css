@@ -474,12 +474,18 @@ footer {
 
 #titleProject {
 	width: 80%;
-	background-color: rgba(232, 241, 246, 1);
+    background-color: white;
+    box-shadow: beige;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #categoryProject {
 	width: 80%;
-	background-color: rgba(232, 241, 246, 1);
+    background-color: white;
+    box-shadow: beige;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #addPhotoForm button {
