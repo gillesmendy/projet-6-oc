@@ -335,3 +335,10 @@ imageInput.addEventListener('change', function(event) {
 document.getElementById('customFileButton').addEventListener('click', function() {
     document.getElementById('imageProject').click();
 });
+
+
+// Icone retour modale
+document.getElementById('returnIcon').addEventListener('click', function() {
+    document.getElementById('modalAddPhoto').style.display = 'none';
+    document.getElementById('modalGallery').style.display = 'block';
+});
