@@ -1,13 +1,12 @@
 
 // Récupération des projets avec fetch
-
 async function getWorks() {
     const response = await fetch('http://localhost:5678/api/works');
     return await response.json();
 };
 
-  // Ajouter les projets à la gallerie 
 
+// Ajouter les projets à la gallerie 
   function addWorks(work) {
     const gallery = document.querySelector('.gallery'); 
   
@@ -26,7 +25,6 @@ async function getWorks() {
     workElement.appendChild(title);
     gallery.appendChild(workElement);
 };
-
 
 async function showWorks() {
     const allWorks = await getWorks();
@@ -70,8 +68,8 @@ sortCategories();
 
 showCategories(); 
 
-// Filtrer le contenu 
 
+// Filtrer le contenu 
 function sortCategories() { 
     const allFiltersButton = document.querySelector('.filters'); 
 
@@ -96,8 +94,8 @@ function sortCategories() {
     });
 }
 
-// Création du bouton modifier
 
+// Création du bouton modifier
 function loginCheck() {
     const token = window.localStorage.getItem("token");
     const filtersSection = document.querySelector('.filters');
@@ -142,6 +140,7 @@ function loginCheck() {
 }
 
 loginCheck(); 
+
 
 // Création de la modale 
 
