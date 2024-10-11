@@ -1,4 +1,3 @@
-
 // Récupération des projets avec fetch
 async function getWorks() {
     const response = await fetch('http://localhost:5678/api/works');
@@ -149,7 +148,7 @@ const modalGallery = document.getElementById('modalGallery');
 const openModalGalleryButton = document.querySelector('.modifySection');
 const closeModalButtons = document.querySelectorAll('.close');
 
-openModalGalleryButton.addEventListener('click', function() {
+openModalGalleryButton?.addEventListener('click', function() {
     modalGallery.style.display = 'block';
 });
 
